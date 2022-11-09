@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "qq1601",
+    "database": "sinkwang-car",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "qq1601",
+    "database": "sinkwang-car",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "qq1601",
+    "database": "sinkwang-car",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
