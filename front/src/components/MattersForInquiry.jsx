@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { Button, Row, Col } from 'antd';
 import Container from '../container/Container';
+import BoardNew from './BoardNew';
 
 const Voc = styled.div`
   display: flex;
@@ -42,12 +43,6 @@ const Voc = styled.div`
   }
 `;
 
-const WriteBtn = styled(Button)`
-  justify-content: flex-end;
-  margin-top: 20;
-  align-items: center;
-`;
-
 const MattersForInquiry = () => {
   // title, content state 생성
   const [VocContent, setVocContent] = useState({});
@@ -77,7 +72,7 @@ const MattersForInquiry = () => {
           <Button onClick={onChangeWriteBoard}>글 쓰기</Button>
         </Col>
       </Row>
-      {writeBoard && <div>asdasd</div>}
+      {writeBoard && <BoardNew />}
 
       <Voc>
         <Container />

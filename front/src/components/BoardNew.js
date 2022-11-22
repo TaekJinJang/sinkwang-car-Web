@@ -1,10 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { boardRemove, boardSave, boardSelectRow } from '../module/boardReducer';
 
-function BoardNew({ onSave, changeInput, inputData, resetForm }) {
+function BoardNew() {
+  let [inputData, setInputData] = useState({
+    boardId: '',
+    boardTitle: '',
+    boardContent: '',
+  });
   const saveBtnClick = (e) => {
     e.preventDefault();
     onSave(inputData);
     resetForm();
+  };
+
+  const dispatch = useDispatch();
+  const onSave = (saveData) => dispatch(boardSave(saveData));
+
+  // reducer state 의 selectRowData field 를 가져온 뒤 subscribe(구독)
+  const { selectRowData } = useSelector((state) => state.boardReducer);
+
+  // inputData 에 selectRowData 의 값을 반영
+  if (JSON.stringify(selectRowData) !== '{}') {
+    setInputData({
+      boardId: selectRowData.boardId,
+      boardTitle: selectRowData.boardTitle,
+      boardContent: selectRowData.boardContent,
+    });
+  }
+
+  const changeInput = (e) => {
+    setInputData({
+      ...inputData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const resetForm = () => {
+    setInputData({
+      boardId: '',
+      boardTitle: '',
+      boardContent: '',
+    });
   };
 
   return (

@@ -79,12 +79,12 @@ function Container() {
         </table>
       </div>
       <div>
-        <BoardNew
+        {/* <BoardNew
           onSave={onSave}
           changeInput={changeInput}
           inputData={inputData}
           resetForm={resetForm}
-        />
+        /> */}
       </div>
     </div>
   );
