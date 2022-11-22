@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { Button } from "antd";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Button, Row, Col } from 'antd';
 
 const Voc = styled.div`
   display: flex;
@@ -41,7 +41,13 @@ const Voc = styled.div`
   }
 `;
 
-export default function MattersForInquiry() {
+const WriteBtn = styled(Button)`
+  justify-content: flex-end;
+  margin-top: 20;
+  align-items: center;
+`;
+
+const MattersForInquiry = () => {
   // title, content state 생성
   const [VocContent, setVocContent] = useState({});
 
@@ -61,47 +67,58 @@ export default function MattersForInquiry() {
   const submit = () => {
     console.log(VocContent);
   };
+
   return (
-    <Voc>
-      <div className="infoFeild">
+    <>
+      <Row justify="end" align="top">
+        <Col offset={24}>
+          <Button>글 쓰기</Button>
+        </Col>
+      </Row>
+
+      <Voc>
+        <div className="infoFeild">
+          <input
+            type="text"
+            className="cusInfo"
+            placeholder="이름을 입력해주세요"
+            name="name"
+            onChange={getValue}
+          />
+          <input
+            type="tel"
+            className="cusInfo"
+            placeholder="연락처를 입력해주세요"
+            name="num"
+            onChange={getValue}
+          />
+        </div>
         <input
+          className="voc-title"
           type="text"
-          className="cusInfo"
-          placeholder="이름을 입력해주세요"
-          name="name"
+          placeholder="제목"
+          name="title"
           onChange={getValue}
         />
-        <input
-          type="tel"
-          className="cusInfo"
-          placeholder="연락처를 입력해주세요"
-          name="num"
-          onChange={getValue}
-        />
-      </div>
-      <input
-        className="voc-title"
-        type="text"
-        placeholder="제목"
-        name="title"
-        onChange={getValue}
-      />
-      {/* <input
+        {/* <input
         type="text"
         className="voc-contents"
         placeholder="문의내용"
         name="contents"
         onChange={getValue}
       /> */}
-      <div className="btn-group">
-        <button className="btn btn--primary" onClick={submit}>
-          입력
-        </button>
-        <button className="btn btn--primary">수정</button>
-        <Button type="primary" danger ghost>
-          삭제
-        </Button>
-      </div>
-    </Voc>
+        <div className="btn-group">
+          <button className="btn btn--primary" onClick={submit}>
+            입력
+          </button>
+          <button className="btn btn--primary">수정</button>
+          <Button type="primary" danger ghost>
+            삭제
+          </Button>
+        </div>
+      </Voc>
+    </>
   );
-}
+};
+
+export default MattersForInquiry;
