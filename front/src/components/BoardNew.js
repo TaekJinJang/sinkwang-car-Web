@@ -28,13 +28,22 @@ function BoardNew({ onSave, changeInput, inputData, resetForm }) {
             value={inputData.boardContent}
           />
         </div>
+        <div>
+          비밀번호 :{' '}
+          <input
+            type="text"
+            name="boardPassword"
+            onChange={changeInput}
+            value={inputData.boardPassword}
+          />
+        </div>
         <input
           type="hidden"
           name="boardId"
           onChange={changeInput}
           value={inputData.boardId}
         />
-        <button type="submit">신규 게시글 저장</button>
+        <button type="submit">게시글 등록</button>
       </form>
     </div>
   );

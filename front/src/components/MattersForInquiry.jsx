@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { Button, Row, Col } from 'antd';
+import Container from '../container/Container';
 
 const Voc = styled.div`
   display: flex;
@@ -50,19 +51,20 @@ const WriteBtn = styled(Button)`
 const MattersForInquiry = () => {
   // title, content state 생성
   const [VocContent, setVocContent] = useState({});
+  const [writeBoard, setWriteBoard] = useState(false);
 
   // 입력받은 title, content를 value값으로 state변경
-  const getValue = (e) => {
-    const { name, value } = e.target;
-    setVocContent({
-      ...VocContent,
-      [name]: value,
-    });
+  // const getValue = (e) => {
+  //   const { name, value } = e.target;
+  //   setVocContent({
+  //     ...VocContent,
+  //     [name]: value,
+  //   });
 
-    // name, value 변경확인
-    // console.log(name, value);
-    // console.log(VocContent);
-  };
+  const onChangeWriteBoard = useCallback(() => {
+    setWriteBoard((prev) => !prev); // state를 True/False로 바꾸기
+    console.log(writeBoard);
+  });
 
   const submit = () => {
     console.log(VocContent);
@@ -72,12 +74,14 @@ const MattersForInquiry = () => {
     <>
       <Row justify="end" align="top">
         <Col offset={24}>
-          <Button>글 쓰기</Button>
+          <Button onClick={onChangeWriteBoard}>글 쓰기</Button>
         </Col>
       </Row>
+      {writeBoard && <div>asdasd</div>}
 
       <Voc>
-        <div className="infoFeild">
+        <Container />
+        {/* <div className="infoFeild">
           <input
             type="text"
             className="cusInfo"
@@ -99,7 +103,7 @@ const MattersForInquiry = () => {
           placeholder="제목"
           name="title"
           onChange={getValue}
-        />
+        /> */}
         {/* <input
         type="text"
         className="voc-contents"
@@ -107,15 +111,6 @@ const MattersForInquiry = () => {
         name="contents"
         onChange={getValue}
       /> */}
-        <div className="btn-group">
-          <button className="btn btn--primary" onClick={submit}>
-            입력
-          </button>
-          <button className="btn btn--primary">수정</button>
-          <Button type="primary" danger ghost>
-            삭제
-          </Button>
-        </div>
       </Voc>
     </>
   );

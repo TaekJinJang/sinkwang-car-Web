@@ -10,6 +10,7 @@ export const boardSave = (saveData) => ({
     boardId: saveData.boardId,
     boardTitle: saveData.boardTitle,
     boardContent: saveData.boardContent,
+    boardPassword: saveData.boardPassword,
   },
 });
 export const boardRemove = (boardId) => ({
