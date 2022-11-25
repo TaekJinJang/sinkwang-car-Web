@@ -3,7 +3,15 @@ import React, { useEffect } from 'react';
 const { kakao } = window;
 
 const MapContainer = () => {
+  const test = () => {
+    setTimeout(console.log('test'), 0);
+  };
+
   useEffect(() => {
+    setTimeout(function () {
+      map.relayout();
+      console.log('relayout');
+    }, 1000);
     const container = document.getElementById('myMap');
     const options = {
       //   center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도 중심좌표
@@ -46,7 +54,7 @@ const MapContainer = () => {
     // 지도에 마커 표시
     marker.setMap(map);
     infowindow.open(map, marker);
-  }, []);
+  }, [test]);
 
   return <div id="myMap" className="map"></div>;
 };
