@@ -1,9 +1,9 @@
-import React from "react";
-import Inner from "../components/Inner";
-import PageTop from "../components/PageTop";
-import { MailOutlined, PhoneOutlined } from "@ant-design/icons";
-import styled from "styled-components";
-import MattersForInquiry from "../components/MattersForInquiry";
+import React from 'react';
+import Inner from '../components/Inner';
+import PageTop from '../components/PageTop';
+import { MailOutlined, PhoneOutlined } from '@ant-design/icons';
+import styled from 'styled-components';
+import EmailSend from '../components/EmailSend';
 
 const ReserveContain = styled.div`
   padding: 100px 0;
@@ -19,7 +19,7 @@ const ReserveContain = styled.div`
     margin-top: 50px;
   }
   .title::after {
-    content: "";
+    content: '';
     display: block;
     width: 60px;
     margin: 20px auto;
@@ -86,7 +86,7 @@ export default function Reservation() {
         </Inner>
         <h2 className="title">문의하기</h2>
         <Inner>
-          <MattersForInquiry />
+          <EmailSend />
         </Inner>
       </ReserveContain>
     </>
