@@ -65,9 +65,7 @@ const Location = styled.div`
     .flex {
       flex-direction: column;
     }
-    img {
-      display: none;
-    }
+
     .title {
       margin: 10px 0;
     }
