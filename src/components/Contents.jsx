@@ -100,6 +100,9 @@ const Service = styled.div`
     border-bottom: 1px solid #000;
   }
 
+/* @media screen and (max-width:1023px) { */
+
+
   @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -218,7 +221,7 @@ function UserList() {
             className="service-img"
             {...animatedItem[0]}
           />
-          <div className="text" {...animatedItem[1]}>
+          <div className="text"  >
             <List
               size="small"
               header={<h2>삼성렉카 서비스</h2>}

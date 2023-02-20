@@ -5,6 +5,7 @@ import SandingRoom from "../images/SandingRoom.jpg";
 import Business from "../images/사업장.jpg";
 import TestRoom from "../images/검사장_1.webp";
 import GCompany from "../images/프로미카지정우수업체.jpg";
+import Insurances from "../images/손해보험.jpg"
 import Insur from "../images/보험수리전용.jpg";
 import Gen from "../images/일반정비_closeup.jpg";
 import Spray from "../images/열처리장.jpg";
@@ -128,8 +129,8 @@ export default function Permit() {
     },
     {
       id: 2,
-      img: GCompany,
-      title: "DB손해보험 지정 우수업체",
+      img: Insurances,
+      title: "손해보험 지정 우수업체",
       text: "하는 일 이것 저것",
     },
     {

@@ -101,7 +101,7 @@ export const MailForm = () => {
   };
 
   return (
-    <Mail {...animatedItem[1]}>
+    <Mail>
       {contextHolder}
       <div className="title">
         <h1 className="sub">문의하기</h1>
